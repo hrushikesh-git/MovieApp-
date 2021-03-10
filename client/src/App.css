@@ -1,0 +1,49 @@
+.mycard{
+    margin-top: 30px;
+}
+
+.auth-card{
+    margin:10px auto;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.homecard{
+    max-width: 400px;
+    /* min-height: 655px; */
+    height: max-content;
+    margin: 26px auto;
+  }
+
+.heading{
+    text-align: center;
+    margin: 0 auto;
+}
+.heading-text:hover{
+    text-decoration: underline;
+    color:#EE6E73
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .paycard{
+    max-width: 600px;
+    /* min-height: 655px; */
+    height: max-content;
+    margin: 0 auto;
+  }
+  .option{
+    color: #f44336;
+    
+    font-size:20px
+  }

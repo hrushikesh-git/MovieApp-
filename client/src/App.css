@@ -47,3 +47,10 @@ body {
     
     font-size:20px
   }
+
+.show{
+  margin-top: 25px;
+}
+.show:hover{
+  cursor: pointer;
+} 

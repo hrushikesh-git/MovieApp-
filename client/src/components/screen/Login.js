@@ -3,12 +3,16 @@ import {Link,useHistory} from 'react-router-dom';
 import '../../App.css'
 import {UserContext} from '../../App';
 import M from 'materialize-css';
+import '../../App.css'
 
 const Login = () =>{
     const {state,dispatch} = useContext(UserContext);
     const history = useHistory();
     const [password,setPassword] = useState("");
     const[email, setEmail] = useState("");
+    const [show,setShow] =useState(false);
+    const [type,setType] = useState('password')
+    const [symbol,setSymbol] = useState('visibility_off')
 
     const PostData = () =>{
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
@@ -41,6 +45,17 @@ const Login = () =>{
         })
     }
 
+    const toggleShow = () => {
+        setShow(!show)
+        if(show){
+            setSymbol('visibility')
+            setType('text')
+        }else{
+            setSymbol('visibility_off')
+            setType('password')
+        }
+    }
+
     return(
         <div className="mycard" >
          <div className="card auth-card input-field">
@@ -50,12 +65,21 @@ const Login = () =>{
             value={email}
            onChange={(e)=>setEmail(e.target.value)} 
             />
-
-            <input type="password"
+            <div className="row">
+            <div className="col s10">
+            <input type={type}
             placeholder="password"
             value={password}
            onChange={(e)=>setPassword(e.target.value)} 
             />
+            </div>
+            <div className="col s2">
+            <i
+            onClick={()=>toggleShow()}
+            class="material-icons show">{symbol}</i>
+            </div>
+            
+            </div>
            <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
            onClick={()=>PostData()}
            >Login </button>
